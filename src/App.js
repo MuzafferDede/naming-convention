@@ -103,43 +103,45 @@ const App = () => {
   }, []);
 
   return (
-    <div className="container p-4 space-y-10">
-      <h1 className="text-3xl text-gray-400 text-center">
-        Naming Convention Generator
-      </h1>
-      <div className="grid gap-4 grid-cols-5 items-start">
-        {inputs.map((input, index) => (
-          <div
-            className={`grid gap-1 p-4 shrink-0 rounded-lg min-w-max text-white font-semibold ${input.color}`}
-            key={input.name}
-          >
-            <label className="text-xs uppercase" htmlFor={input.name}>
-              {input.label}
-            </label>
-            <Input
-              id={input.name}
-              label={input.label}
-              type={input.type}
-              options={input.options}
-              defaultValue={name[input.name]}
-              name={input.name}
-              placeholder={input.placeholder}
-              onChange={onChange}
-              disabled={input.dependency && !name[input.dependency]}
-            />
-          </div>
-        ))}
-      </div>
-      <div className="flex space-x-4 text-3xl text-gray-700 items-center justify-center py-10 px-4 bg-gray-100 rounded-lg shadow-md">
-        {Object.entries(name).map(
-          ([key, value]) =>
-            value && (
-              <div className="flex space-x-4" key={key}>
-                <span>{name[key]}</span>
-                {key !== "tag" && <span>/</span>}
-              </div>
-            )
-        )}
+    <div className="min-h-screen bg-blue-100">
+      <div className="container p-4 space-y-10">
+        <h1 className="text-3xl text-gray-500 text-center py-10 drop-shadow">
+          Naming Convention Generator
+        </h1>
+        <div className="grid gap-4 grid-cols-5 items-start">
+          {inputs.map((input, index) => (
+            <div
+              className={`grid gap-1 p-4 shrink-0 rounded-lg min-w-max text-white font-semibold shadow-lg ${input.color}`}
+              key={input.name}
+            >
+              <label className="text-xs uppercase" htmlFor={input.name}>
+                {input.label}
+              </label>
+              <Input
+                id={input.name}
+                label={input.label}
+                type={input.type}
+                options={input.options}
+                defaultValue={name[input.name]}
+                name={input.name}
+                placeholder={input.placeholder}
+                onChange={onChange}
+                disabled={input.dependency && !name[input.dependency]}
+              />
+            </div>
+          ))}
+        </div>
+        <div className="flex space-x-4 h-40 ring-1 ring-gray-400 text-3xl text-gray-700 items-center justify-center py-10 px-4 bg-gray-100 rounded-lg shadow-md">
+          {Object.entries(name).map(
+            ([key, value]) =>
+              value && (
+                <div className="flex space-x-4" key={key}>
+                  <span>{name[key]}</span>
+                  {key !== "tag" && <span>/</span>}
+                </div>
+              )
+          )}
+        </div>
       </div>
     </div>
   );
