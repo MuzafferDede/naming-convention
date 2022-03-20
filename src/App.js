@@ -103,7 +103,10 @@ const App = () => {
   }, []);
 
   return (
-    <div className="container p-4 space-y-4">
+    <div className="container p-4 space-y-10">
+      <h1 className="text-3xl text-gray-400 text-center">
+        Naming Convention Generator
+      </h1>
       <div className="grid gap-4 grid-cols-5 items-start">
         {inputs.map((input, index) => (
           <div
