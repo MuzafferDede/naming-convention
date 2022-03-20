@@ -8,7 +8,7 @@ const Input = forwardRef(({ type = "text", ...rest }, ref) => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <OtherComponent
-        className="border px-4 py-2 rounded text-gray-700 w-full"
+        className="border px-4 py-2 rounded text-gray-700 w-full bg-white disabled:opacity-80 outline-none ring-2 ring-transparent focus:ring-blue-400 hover:ring-blue-200"
         {...rest}
         ref={ref}
       />

@@ -10,6 +10,8 @@ const App = () => {
         name: "product-name",
         label: "Product Name",
         type: "select",
+        color: "bg-blue-500",
+        placeholder: "Select a product",
         options: [
           {
             label: "Good Wallet",
@@ -29,6 +31,9 @@ const App = () => {
         name: "project-name",
         label: "Project Name",
         type: "select",
+        color: "bg-purple-500",
+        placeholder: "Select a project",
+        dependency: "product-name",
         options: [
           {
             label: "One Account",
@@ -44,6 +49,9 @@ const App = () => {
         name: "role-name",
         label: "Role Name",
         type: "select",
+        color: "bg-orange-500",
+        placeholder: "Select a role",
+        dependency: "project-name",
         options: [
           {
             label: "UX",
@@ -71,11 +79,17 @@ const App = () => {
         name: "the-thing-name",
         label: "The Thing Name",
         type: "text",
+        color: "bg-yellow-500",
+        placeholder: "Enter a name",
+        dependency: "role-name",
       },
       {
         name: "tag",
         label: "Tag",
         type: "text",
+        color: "bg-green-500",
+        placeholder: "Enter a tag",
+        dependency: "the-thing-name",
       },
     ],
     []
@@ -84,16 +98,19 @@ const App = () => {
   const onChange = useCallback(({ target }) => {
     setName((prev) => ({
       ...prev,
-      [target.name]: target.value.toLowerCase().replace(/\s/g, "-"),
+      [target.name]: target.value.toLowerCase().replace(/\s/g, "_"),
     }));
   }, []);
 
   return (
-    <div className="container p-4 space-y-1">
+    <div className="container p-4 space-y-4">
       <div className="grid gap-4 grid-cols-5 items-start">
-        {inputs.map((input) => (
-          <div className="grid gap-1" key={input.name}>
-            <label className="text-xs text-gray-600" htmlFor={input.name}>
+        {inputs.map((input, index) => (
+          <div
+            className={`grid gap-1 p-4 shrink-0 rounded-lg min-w-max text-white font-semibold ${input.color}`}
+            key={input.name}
+          >
+            <label className="text-xs uppercase" htmlFor={input.name}>
               {input.label}
             </label>
             <Input
@@ -103,15 +120,23 @@ const App = () => {
               options={input.options}
               defaultValue={name[input.name]}
               name={input.name}
+              placeholder={input.placeholder}
               onChange={onChange}
+              disabled={input.dependency && !name[input.dependency]}
             />
-            {name[input.name] && (
-              <p>
-                {input.label}: {name[input.name]}
-              </p>
-            )}
           </div>
         ))}
+      </div>
+      <div className="flex space-x-4 text-3xl text-gray-700 items-center justify-center py-10 px-4 bg-gray-100 rounded-lg shadow-md">
+        {Object.entries(name).map(
+          ([key, value]) =>
+            value && (
+              <div className="flex space-x-4" key={key}>
+                <span>{name[key]}</span>
+                {key !== "tag" && <span>/</span>}
+              </div>
+            )
+        )}
       </div>
     </div>
   );
