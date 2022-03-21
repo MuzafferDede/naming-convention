@@ -43,6 +43,10 @@ const App = () => {
             label: "PGN",
             value: "pgn",
           },
+          {
+            label: "PE",
+            value: "pe",
+          },
         ],
       },
       {
@@ -72,6 +76,10 @@ const App = () => {
           {
             label: "DevOps",
             value: "devops",
+          },
+          {
+            label: "Avengers",
+            value: "avengers",
           },
         ],
       },

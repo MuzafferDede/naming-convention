@@ -3,7 +3,7 @@ import React, { forwardRef, memo, Suspense, useMemo } from "react";
 const Input = forwardRef(({ type = "text", ...rest }, ref) => {
   const OtherComponent = useMemo(() => {
     return React.lazy(() => import(`./inputs/${type}`));
-  }, []);
+  }, [type]);
 
   return (
     <Suspense fallback={<div>Loading...</div>}>

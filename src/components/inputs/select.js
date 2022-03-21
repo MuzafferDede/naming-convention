@@ -1,5 +1,3 @@
-import { memo } from "react";
-
 const Select = ({ options = [], defaultValue, placeholder, ref, ...rest }) => {
   return (
     <select {...rest} ref={ref}>
@@ -15,4 +13,4 @@ const Select = ({ options = [], defaultValue, placeholder, ref, ...rest }) => {
   );
 };
 
-export default memo(Select);
+export default Select;
