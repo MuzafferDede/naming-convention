@@ -116,7 +116,7 @@ const App = () => {
         <h1 className="text-3xl text-gray-500 text-center py-10 drop-shadow">
           Naming Convention Generator
         </h1>
-        <div className="grid gap-4 grid-cols-5 items-start">
+        <div className="grid gap-4 lg:grid-cols-5 items-start">
           {inputs.map((input, index) => (
             <div
               className={`grid gap-1 p-4 shrink-0 rounded-lg min-w-max text-white font-semibold shadow-lg ${input.color}`}
