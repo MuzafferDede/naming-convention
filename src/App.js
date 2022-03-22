@@ -139,7 +139,7 @@ const App = () => {
             </div>
           ))}
         </div>
-        <div className="flex space-x-4 h-40 ring-1 ring-gray-400 text-3xl text-gray-700 items-center justify-center py-10 px-4 bg-gray-100 rounded-lg shadow-md">
+        <div className="flex flex-wrap lg:flex-nowrap space-x-4 h-40 ring-1 ring-gray-400 text-3xl text-gray-700 items-center justify-center py-10 px-4 bg-gray-100 rounded-lg shadow-md">
           {Object.entries(name).map(
             ([key, value]) =>
               value && (
