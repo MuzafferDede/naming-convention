@@ -114,7 +114,7 @@ const App = () => {
     <div className="min-h-screen bg-blue-100">
       <div className="container p-4 space-y-10">
         <h1 className="text-3xl text-gray-500 text-center py-10 drop-shadow">
-          Naming Convention Generator
+          Name My Name
         </h1>
         <div className="grid gap-4 lg:grid-cols-5 items-start">
           {inputs.map((input, index) => (

@@ -6,7 +6,7 @@ const Input = forwardRef(({ type = "text", ...rest }, ref) => {
   }, [type]);
 
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<LoadingPlaceHolder />}>
       <OtherComponent
         className="px-4 py-2 rounded text-gray-700 w-full bg-white disabled:opacity-80 outline-none ring-2 ring-transparent focus:ring-blue-400 hover:ring-blue-200 h-10"
         {...rest}
@@ -16,7 +16,7 @@ const Input = forwardRef(({ type = "text", ...rest }, ref) => {
   );
 });
 
-const Loading = () => {
+const LoadingPlaceHolder = () => {
   return (
     <div
       type="text"
